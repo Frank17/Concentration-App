@@ -1,0 +1,10 @@
+gunicorn
+flask
+flask_cors
+numpy
+nltk
+igraph
+wtforms
+flask_login
+firebase_admin
+werkzeug
