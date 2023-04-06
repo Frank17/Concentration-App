@@ -5,6 +5,8 @@ numpy
 nltk
 igraph
 wtforms
+flask_wtf
 flask_login
+email_validator
 firebase_admin
 werkzeug
