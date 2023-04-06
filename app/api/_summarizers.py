@@ -20,9 +20,6 @@ class BaseSummarizer(ABC):
         kw = {keywords} if isinstance(keywords, str) else set(keywords)
         if threhold:
             jaccard_simi = len(txt & kw) / len(txt | kw)
-            print('Summary:', txt)
-            print('Keywords:', kw)
-            print('Jaccard similarity:', jaccard_simi)
             return jaccard_simi >= threhold
         return kw < txt
 
