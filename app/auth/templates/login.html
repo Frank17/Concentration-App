@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block remember %}
+    <div class="form-check pb-2">
+        {{ form.remember(class_="form-check-input") }}
+        <b>{{ form.remember.label(class_="form-check-label") }}</b>
+    </div>
+{% endblock %}
