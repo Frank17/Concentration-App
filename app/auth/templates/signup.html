@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Signup Page
+{% endblock %}
+
+
+{% block login_reminder %}
+    <div class="fst-italic fw-light text-center pt-3">
+        Already have an account? <a href="{{ url_for('auth.login') }}">Login here</a>.
+    </div>
+{% endblock %}
+
+
+{% block username %}
+    <div class="form-group">
+        <b>{{ form.username.label(class_="form-label pt-4") }}</b>:
+           {{ form.username(placeholder="Username will appear in profile", class_="form-control") }}
+           {% for error in form.username.errors %}
+               {{ error }}
+           {% endfor%}
+    </div>
+{% endblock %}
+
+
+{% block delayed_redirection %}
+    {% if redirect_url %}
+        <script>
+            window.setTimeout(function() {
+                window.location.href = '{{ redirect_url }}';
+            }, {{ sec }} * 1000);
+        </script>
+    {% endif %}
+{% endblock %}
