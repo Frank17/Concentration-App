@@ -7,7 +7,7 @@ from igraph import Graph
 from functools import lru_cache
 from collections import Counter
 
-from _handler import STOPWORDS_EXT, download_nltk
+from ._handler import STOPWORDS_EXT, download_nltk
 
 _stopwords, lemmatizer = download_nltk()
 _stopwords.extend(STOPWORDS_EXT)
