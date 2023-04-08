@@ -68,7 +68,8 @@ def _get_similarity_matrix(
 
 def cosine_summarize(sents: list[list[str]]) -> dict[str, float]:
     simi_mtx = _get_similarity_matrix(sents)
-    scores = Graph.Adjacency(simi_mtx).pagerank()
+    simi_gph = Graph.Weighted_Adjacency(simi_mtx)
+    scores = simi_gph.pagerank(weights='weight')
     return dict(zip(sents, scores))
 
 
