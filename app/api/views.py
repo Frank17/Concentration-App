@@ -4,8 +4,9 @@ from ._algo import lemmatizer
 from ._summarizers import CosineSummarizer
 
 PERCENT = 0.4
-THRESHOLD = 0.002
+THRESHOLD = 0.0015
 _lemmatize = lemmatizer.lemmatize
+
 
 @api_bp.route('/summary', methods=['GET', 'POST'])
 def summarize():
