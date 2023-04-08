@@ -1,14 +1,19 @@
 from flask import request
 from . import api_bp
 from ._algo import lemmatizer
-from ._summarizers import cosine_categorize
+from ._summarizers import CosineSummarizer
+
+PERCENT = 0.4
+THRESHOLD = 0.0025
+_lemmatize = lemmatizer.lemmatize
 
 @api_bp.route('/summary', methods=['GET', 'POST'])
 def summarize():
-	if request.method == 'POST':
-		f = request.form
-		text = f['text']
-		keywords = (lemmatizer.lemmatize(subject)
-                    for subject in f['subjects'].split(','))
-		return str(cosine_categorize(text, keywords))
-	return 'POST me'
+    if request.method == 'POST':
+        f = request.form
+        text = f['text']
+        keywords = f['subjects'].split(',')
+        keywords = {_lemmatize(kw) for kw in keywords}
+        cos_summarizer = CosineSummarizer()
+        return str(cos_summarizer.categorize(text, keywords, PERCENT, THRESHOLD))
+    return 'POST Me'

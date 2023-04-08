@@ -4,7 +4,15 @@ from nltk.stem import WordNetLemmatizer
 
 STOPWORDS_EXT = [
     "i’ve", "i’m", "we’ve", "you’ve", "she’ve", "he’ve", "they’ve",
-    "haven’t", "don’t", "does’t", "didn’t", "wouldn’t", "won’t"
+    "haven’t", "hasn’t",
+    "don’t", "does’t", "didn’t",
+    "wouldn’t", "won’t", "without",
+    "i've", "i'm", "we've", "you've", "she've", "he've", "they've",
+    "haven't", "hasn't"
+    "don't", "does't", "didn't",
+    "wouldn't", "won't", "without",
+    "would", "need", "like", "also",
+    "never", "rarely", "sometimes", "often", "oftentimes", "always",
 ]
 
 
