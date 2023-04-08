@@ -38,7 +38,7 @@ def get_sents(text: str) -> list[str]:
 
 
 def cos_summarize(sents: list[list[str]]) -> dict[str, float]:
-    tfidf_vec = TfidfVectorizer()
+    tfidf_vec = TfidfVectorizer(stop_words=None)
     tfidf_mtx = tfidf_vec.fit_transform(sents)
     cos_simi_mtx = tfidf_mtx * tfidf_mtx.T
     
