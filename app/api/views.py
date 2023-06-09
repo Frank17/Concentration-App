@@ -12,9 +12,9 @@ _lemmatize = lemmatizer.lemmatize
 def summarize():
     if request.method == 'POST':
         f = request.form
-        text = f['text']
-        keywords = f['subjects'].split(',')
-        keywords = {_lemmatize(kw) for kw in keywords}
+        text: str = f['text']
+        keywords: list[str] = f['subjects'].split(',')
+        keywords: set[str] = {_lemmatize(kw) for kw in keywords}
         cos_summarizer = CosineSummarizer()
         return str(cos_summarizer.categorize(text, keywords, PERCENT, THRESHOLD))
     return 'POST Me'

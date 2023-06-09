@@ -23,7 +23,6 @@ class BaseSummarizer(ABC):
         sents = get_sents(text)
         return '. '.join(select(self._summarize(sents), percent)) + '.'
 
-
     def categorize(
         self,
         text: str,
