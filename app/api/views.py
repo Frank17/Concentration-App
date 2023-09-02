@@ -19,4 +19,4 @@ def summarize():
         mode: str = f['mode']
         return 'wtf this is wrong'
         # return get_judgment(url, text, keywords, mode)
-    return 'POST Me'
+    return 'wtf this is wrong'
