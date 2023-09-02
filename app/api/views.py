@@ -17,6 +17,6 @@ def summarize():
             in json.loads(f['subjects'])
         ]
         mode: str = f['mode']
-        return 'wtf this is wrong'
         # return get_judgment(url, text, keywords, mode)
-    return 'wtf this is wrong'
+        return f'text: {text}, url: {url}, keywords: {keywords}, mode: {mode}, judgement: {get_judgment(url, text, keywords, mode)}'
+    return 'POST Me'
