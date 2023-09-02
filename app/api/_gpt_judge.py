@@ -22,9 +22,10 @@ def get_gpt_judgment(url: str, text: str, keywords: str):
         return len(GPT3_ENCODING.encode(text))
         
     if len(keywords) == 1:
-        keywords = keywords[0]
+        keywords = f'"{keywords[0]}"'
     else:
-        keywords = f'{", ".join(keywords[:-1])}, or {keywords[-1]}'
+        rest = '", "'.join(keywords[:-1])
+        keywords = f'"{rest}", or "{keywords[-1]}"'
         
     req_prompt = PROMPT.format(url=url, keywords=keywords)
     max_text_token_n = 4000 - get_token_n(req_prompt)
