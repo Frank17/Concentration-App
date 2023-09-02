@@ -7,6 +7,7 @@ from igraph import Graph
 from ._nltk_handler import STOPWORDS, WNL
 
 from collections import Counter
+import re
 
 
 INVALID_CHAR_REGEX = re.compile('[^a-zA-Z’\'\s]+')
