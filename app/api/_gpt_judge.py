@@ -8,8 +8,9 @@ import os
 
 PROMPT = ('You will be provided with an article from the website {url}. '
           'It has been cleaned to remove stopwords. '
-          'Based on this article and your knowledge of the website, '
-          'is the article related to {keywords}? Output only yes or no.')
+          'Based on your knowledge of the website and this article, '
+          'are them related to {keywords}? Output only yes or no. '
+          '(yes if they relate to ANY of the keywords, and no otherwise)')
 
 GPT3_ENCODING = tiktoken.encoding_for_model('gpt-3.5-turbo')
 
