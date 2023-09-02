@@ -12,3 +12,5 @@ email_validator
 firebase_admin
 werkzeug
 rapidfuzz
+tiktoken
+openai

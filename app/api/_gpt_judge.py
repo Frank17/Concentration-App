@@ -3,6 +3,9 @@ import openai
 from ._algo import cos_summarize
 from ._gpt_cache import judgment_cache
 
+import os
+
+
 PROMPT = ('You will be provided with an article from the website {url}. '
           'It has been cleaned to remove stopwords. '
           'Based on this article and your knowledge of the website, '
