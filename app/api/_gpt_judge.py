@@ -10,12 +10,8 @@ PROMPT = ('You will be provided with an article from the website {url}. '
 
 GPT3_ENCODING = tiktoken.encoding_for_model('gpt-3.5-turbo')
 
-"""
-# import os  # do this in heroku
-import os
-os.environ['OPENAI_API_KEY'] = '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'
 openai.api_key = os.getenv('OPENAI_API_KEY')
-"""
+
 
 @judgment_cache
 def get_gpt_judgment(url: str, text: str, keywords: str):
