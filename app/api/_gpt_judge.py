@@ -27,7 +27,7 @@ def get_gpt_judgment(url: str, text: str, keywords: str):
         keywords = f'{", ".join(keywords[:-1])}, or {keywords[-1]}'
         
     req_prompt = PROMPT.format(url=url, keywords=keywords)
-    max_text_token_n = 4090 - get_token_n(req_prompt)
+    max_text_token_n = 4000 - get_token_n(req_prompt)
     
     if get_token_n(text) > max_text_token_n:
         summary = cos_summarize(text)
@@ -35,7 +35,7 @@ def get_gpt_judgment(url: str, text: str, keywords: str):
         text = ''
         while summary:
             next_sent = summary.pop()
-            if get_token_n(text + next_sent) > max_text_token_n:
+            if get_token_n(text + next_sent) >= max_text_token_n:
                 break
             text += ' ' + next_sent
 
