@@ -18,4 +18,5 @@ def summarize():
         ]
         mode: str = f['mode']
         return get_judgment(url, text, keywords, mode)
+    
     return 'POST Me'

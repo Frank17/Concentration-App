@@ -14,6 +14,8 @@ INVALID_CHAR_REGEX = re.compile('[^a-zA-Z’\'\s]+')
 
 
 def get_sents(text: str) -> list[str]:
+    """Return a list of cleaned sentences with lemmatized words
+    """
     sents = re.split('[.!?] ', re.sub('([—-]+|;|:)', ' ', text))
     cleaned_sents = []
     add_sent = cleaned_sents.append
@@ -29,6 +31,8 @@ def get_sents(text: str) -> list[str]:
 
 
 def cos_summarize(text: str) -> dict[str, float]:
+    """Return a summary of the text using cosine similarity algorithm
+    """
     sents = get_sents(text)
     tfidf_pl = make_pipeline(
         # Hashing vec. is employed since it is more memory-efficient.
@@ -47,6 +51,8 @@ def cos_summarize(text: str) -> dict[str, float]:
 
 
 def freq_summarize(text: str) -> dict[str, float]:
+    """Return a summary of the text using frequency analysis
+    """
     sents = get_sents(text)
     abs_freqs = Counter(word for sent in sents for word in sent)
     max_count = max(abs_freqs.values())
