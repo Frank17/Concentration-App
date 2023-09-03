@@ -5,8 +5,8 @@ from heapq import nlargest
 from ._algo import cos_summarize
 
 
-PERCENT = 0.4
-THRESHOLD = 0.0015
+PERCENT = 0.4  # Extract 40% of the most relevant sentences from the summary
+THRESHOLD = 0.0015  # Min Jaccard index needed to block the website
 
 
 def select(scored_sents: dict[str, float], percent: int | float = 0) -> list[str]:
@@ -21,9 +21,9 @@ def get_strict_judgment(text: str, keywords: list[str]) -> bool:
     """
     keywords = set(keywords)
     summary = select(cos_summarize(text), PERCENT)
-    # Calculate the jaccard similarity between the text and the keywords
+    # Calculate the Jaccard index between the text and the keywords
     words = {word for sent in summary for word in sent.split()}
-    jaccard_simi = len(words & keywords) / len(words | keywords)
-    if jaccard_simi >= THRESHOLD:
+    jaccard_idx = len(words & keywords) / len(words | keywords)
+    if jaccard_idx >= THRESHOLD:
         return 'yes'
     return 'no'
